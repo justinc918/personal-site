@@ -21,9 +21,11 @@ const MIN_SCALE = 0.1
 const MAX_SCALE = 8
 const CARD_WIDTH = 280
 
+const INITIAL_TRANSFORM: Transform = { x: 0, y: 0, scale: 1 }
+
 export default function Whiteboard({ images }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [transform, setTransform] = useState<Transform>({ x: 0, y: 0, scale: 1 })
+  const [transform, setTransform] = useState<Transform>(INITIAL_TRANSFORM)
 
   // Pan state tracked in a ref so event handlers never go stale
   const isPanning = useRef(false)
@@ -77,17 +79,21 @@ export default function Whiteboard({ images }: Props) {
 
   const onPointerUp = () => { isPanning.current = false }
 
+  const resetCamera = useCallback(() => {
+    setTransform(INITIAL_TRANSFORM)
+  }, [])
+
   // ── Keyboard shortcuts ────────────────────────────────────────────────────
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === '0' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
-        setTransform({ x: 0, y: 0, scale: 1 })
+        resetCamera()
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  }, [resetCamera])
 
   return (
     <div
@@ -119,6 +125,15 @@ export default function Whiteboard({ images }: Props) {
           <ImageCard key={img.id} item={img} />
         ))}
       </div>
+
+      <button
+        type="button"
+        onPointerDown={e => e.stopPropagation()}
+        onClick={resetCamera}
+        style={resetButtonStyle}
+      >
+        Reset
+      </button>
     </div>
   )
 }
@@ -142,4 +157,21 @@ function ImageCard({ item }: { item: ImageItem }) {
       }}
     />
   )
+}
+
+const resetButtonStyle: React.CSSProperties = {
+  position: 'fixed',
+  bottom: 20,
+  left: 20,
+  background: 'rgba(0,0,0,0.05)',
+  backdropFilter: 'blur(8px)',
+  border: '1px solid rgba(0,0,0,0.1)',
+  color: 'rgba(0,0,0,0.55)',
+  fontSize: 12,
+  padding: '6px 14px',
+  borderRadius: 20,
+  fontFamily: 'system-ui, sans-serif',
+  letterSpacing: '0.03em',
+  cursor: 'pointer',
+  zIndex: 100,
 }
