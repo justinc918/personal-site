@@ -104,14 +104,6 @@ export default function Whiteboard({ images }: Props) {
         userSelect: 'none',
       }}
     >
-      {/* Zoom hint */}
-      <div style={hintStyle}>
-        scroll to zoom · drag to pan · ⌘0 to reset
-        <span style={{ marginLeft: 16, opacity: 0.5 }}>
-          {Math.round(transform.scale * 100)}%
-        </span>
-      </div>
-
       {/* Canvas layer */}
       <div
         style={{
@@ -150,22 +142,4 @@ function ImageCard({ item }: { item: ImageItem }) {
       }}
     />
   )
-}
-
-const hintStyle: React.CSSProperties = {
-  position: 'fixed',
-  bottom: 20,
-  left: '50%',
-  transform: 'translateX(-50%)',
-  background: 'rgba(0,0,0,0.05)',
-  backdropFilter: 'blur(8px)',
-  border: '1px solid rgba(0,0,0,0.1)',
-  color: 'rgba(0,0,0,0.4)',
-  fontSize: 12,
-  padding: '6px 14px',
-  borderRadius: 20,
-  fontFamily: 'system-ui, sans-serif',
-  pointerEvents: 'none',
-  letterSpacing: '0.03em',
-  zIndex: 100,
 }
