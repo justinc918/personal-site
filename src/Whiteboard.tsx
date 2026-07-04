@@ -100,7 +100,7 @@ export default function Whiteboard({ images }: Props) {
         height: '100%',
         overflow: 'hidden',
         cursor: isPanning.current ? 'grabbing' : 'grab',
-        background: '#fff',
+        background: 'rgb(239, 239, 232)',
         userSelect: 'none',
       }}
     >
