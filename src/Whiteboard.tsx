@@ -138,7 +138,7 @@ function ImageCard({ item }: { item: ImageItem }) {
     <img
       data-card
       src={item.src}
-      alt={item.label}
+      alt={item.id}
       draggable={false}
       style={{
         position: 'absolute',
