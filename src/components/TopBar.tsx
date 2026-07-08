@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const BASE = import.meta.env.BASE_URL
 const RESUME_URL = `${BASE}files/JustinChenResumeF.pdf`
@@ -21,6 +21,7 @@ const externalLinkStyle: React.CSSProperties = {
 
 export default function TopBar() {
   const [artworkOpen, setArtworkOpen] = useState(false)
+  const artworkActive = useLocation().pathname.startsWith('/artwork')
 
   return (
     <nav style={barStyle}>
@@ -35,7 +36,7 @@ export default function TopBar() {
         onMouseEnter={() => setArtworkOpen(true)}
         onMouseLeave={() => setArtworkOpen(false)}
       >
-        <span style={artworkLabelStyle}>
+        <span style={{ ...artworkLabelStyle, color: artworkActive ? '#c4d3ff' : artworkLabelStyle.color, fontWeight: artworkActive ? 500 : 400 }}>
           Artwork
           <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" style={artworkArrowStyle}>
             <path
