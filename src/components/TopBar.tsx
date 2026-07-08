@@ -5,7 +5,7 @@ const BASE = import.meta.env.BASE_URL
 const RESUME_URL = `${BASE}files/JustinChenResumeF.pdf`
 
 const navLinkStyle = ({ isActive }: { isActive: boolean }): React.CSSProperties => ({
-  color: isActive ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.75)',
+  color: isActive ? '#c4d3ff' : 'rgba(196,211,255,0.75)',
   textDecoration: 'none',
   fontSize: 18,
   letterSpacing: '0.03em',
@@ -13,14 +13,14 @@ const navLinkStyle = ({ isActive }: { isActive: boolean }): React.CSSProperties 
 })
 
 const externalLinkStyle: React.CSSProperties = {
-  color: 'rgba(255,255,255,0.75)',
+  color: 'rgba(196,211,255,0.75)',
   textDecoration: 'none',
   fontSize: 18,
   letterSpacing: '0.03em',
 }
 
 export default function TopBar() {
-  const [galleryOpen, setGalleryOpen] = useState(false)
+  const [artworkOpen, setArtworkOpen] = useState(false)
 
   return (
     <nav style={barStyle}>
@@ -32,12 +32,12 @@ export default function TopBar() {
       </NavLink>
       <div
         style={{ position: 'relative' }}
-        onMouseEnter={() => setGalleryOpen(true)}
-        onMouseLeave={() => setGalleryOpen(false)}
+        onMouseEnter={() => setArtworkOpen(true)}
+        onMouseLeave={() => setArtworkOpen(false)}
       >
-        <span style={galleryLabelStyle}>
-          Gallery
-          <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" style={galleryArrowStyle}>
+        <span style={artworkLabelStyle}>
+          Artwork
+          <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" style={artworkArrowStyle}>
             <path
               d="M1 1 L5 5 L9 1"
               stroke="currentColor"
@@ -48,19 +48,19 @@ export default function TopBar() {
             />
           </svg>
         </span>
-        {galleryOpen && (
+        {artworkOpen && (
           <div style={dropdownStyle}>
             <NavLink
-              to="/gallery/digital"
+              to="/artwork/digital"
               style={navLinkStyle}
-              onClick={() => setGalleryOpen(false)}
+              onClick={() => setArtworkOpen(false)}
             >
               Digital
             </NavLink>
             <NavLink
-              to="/gallery/whiteboard"
+              to="/artwork/whiteboard"
               style={navLinkStyle}
-              onClick={() => setGalleryOpen(false)}
+              onClick={() => setArtworkOpen(false)}
             >
               Whiteboard
             </NavLink>
@@ -86,17 +86,17 @@ const barStyle: React.CSSProperties = {
   textTransform: 'uppercase',
 }
 
-const galleryLabelStyle: React.CSSProperties = {
+const artworkLabelStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: 6,
-  color: 'rgba(255,255,255,0.75)',
+  color: 'rgba(196,211,255,0.75)',
   fontSize: 18,
   letterSpacing: '0.03em',
   cursor: 'default',
 }
 
-const galleryArrowStyle: React.CSSProperties = {
+const artworkArrowStyle: React.CSSProperties = {
   flexShrink: 0,
   marginTop: 2,
 }

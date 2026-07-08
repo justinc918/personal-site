@@ -12,8 +12,8 @@ export default function App() {
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />
           <Route path="projects" element={<Projects />} />
-          <Route path="gallery/digital" element={<Digital />} />
-          <Route path="gallery/whiteboard" element={<WhiteboardPage />} />
+          <Route path="artwork/digital" element={<Digital />} />
+          <Route path="artwork/whiteboard" element={<WhiteboardPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
