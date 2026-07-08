@@ -26,7 +26,7 @@ export default function TopBar() {
   return (
     <nav style={barStyle}>
       <NavLink to="/" style={navLinkStyle} end>
-        Profile
+        About
       </NavLink>
       <NavLink to="/projects" style={navLinkStyle}>
         Projects
