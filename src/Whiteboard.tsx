@@ -22,6 +22,8 @@ const MAX_SCALE = 8
 const CARD_WIDTH = 280
 
 const INITIAL_TRANSFORM: Transform = { x: 0, y: 0, scale: 1 }
+const TEXTURE_SRC = `${import.meta.env.BASE_URL}images/whiteboard.png`
+const TEXTURE_TILE = 512
 
 export default function Whiteboard({ images }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -106,7 +108,11 @@ export default function Whiteboard({ images }: Props) {
         height: '100%',
         overflow: 'hidden',
         cursor: isPanning.current ? 'grabbing' : 'grab',
-        background: 'rgb(239, 239, 232)',
+        backgroundColor: 'rgb(239, 239, 232)',
+        backgroundImage: `url(${TEXTURE_SRC})`,
+        backgroundRepeat: 'repeat',
+        backgroundPosition: `${transform.x}px ${transform.y}px`,
+        backgroundSize: `${TEXTURE_TILE * transform.scale}px ${TEXTURE_TILE * transform.scale}px`,
         userSelect: 'none',
       }}
     >

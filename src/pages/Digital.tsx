@@ -1,7 +1,7 @@
 const QA_ITEMS = [
   {
     question: 'What tools do you use?',
-    answer: 'Procreate to sketch and draw in mostly everything, and Photoshop for coloring and tuning colors.',
+    answer: 'Procreate to sketch and draw in mostly everything, and Photoshop for tuning colors and special effects.',
   },
   {
     question: 'Is anything AI generated?',
