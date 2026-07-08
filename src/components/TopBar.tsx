@@ -5,17 +5,17 @@ const BASE = import.meta.env.BASE_URL
 const RESUME_URL = `${BASE}files/JustinChenResumeF.pdf`
 
 const navLinkStyle = ({ isActive }: { isActive: boolean }): React.CSSProperties => ({
-  color: isActive ? 'rgba(0,0,0,0.85)' : 'rgba(0,0,0,0.55)',
+  color: isActive ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.75)',
   textDecoration: 'none',
-  fontSize: 14,
+  fontSize: 18,
   letterSpacing: '0.03em',
   fontWeight: isActive ? 500 : 400,
 })
 
 const externalLinkStyle: React.CSSProperties = {
-  color: 'rgba(0,0,0,0.55)',
+  color: 'rgba(255,255,255,0.75)',
   textDecoration: 'none',
-  fontSize: 14,
+  fontSize: 18,
   letterSpacing: '0.03em',
 }
 
@@ -68,16 +68,15 @@ const barStyle: React.CSSProperties = {
   justifyContent: 'center',
   gap: 56,
   padding: '14px 28px',
-  background: 'rgb(239, 239, 232)',
-  borderBottom: '1px solid rgba(0,0,0,0.08)',
+  background: 'transparent',
   fontFamily: 'system-ui, sans-serif',
   flexShrink: 0,
   zIndex: 200,
 }
 
 const galleryLabelStyle: React.CSSProperties = {
-  color: 'rgba(0,0,0,0.55)',
-  fontSize: 14,
+  color: 'rgba(255,255,255,0.75)',
+  fontSize: 18,
   letterSpacing: '0.03em',
   cursor: 'default',
 }
@@ -91,8 +90,6 @@ const dropdownStyle: React.CSSProperties = {
   flexDirection: 'column',
   gap: 12,
   padding: '12px 16px',
-  background: 'rgb(239, 239, 232)',
-  border: '1px solid rgba(0,0,0,0.08)',
-  borderRadius: 6,
+  background: 'transparent',
   minWidth: 120,
 }
