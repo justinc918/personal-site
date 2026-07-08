@@ -170,7 +170,6 @@ const resetButtonStyle: React.CSSProperties = {
   fontSize: 12,
   padding: '6px 14px',
   borderRadius: 20,
-  fontFamily: 'system-ui, sans-serif',
   letterSpacing: '0.03em',
   cursor: 'pointer',
   zIndex: 100,

@@ -35,7 +35,19 @@ export default function TopBar() {
         onMouseEnter={() => setGalleryOpen(true)}
         onMouseLeave={() => setGalleryOpen(false)}
       >
-        <span style={galleryLabelStyle}>Gallery</span>
+        <span style={galleryLabelStyle}>
+          Gallery
+          <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" style={galleryArrowStyle}>
+            <path
+              d="M1 1 L5 5 L9 1"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
         {galleryOpen && (
           <div style={dropdownStyle}>
             <NavLink
@@ -69,16 +81,24 @@ const barStyle: React.CSSProperties = {
   gap: 56,
   padding: '14px 28px',
   background: 'transparent',
-  fontFamily: 'system-ui, sans-serif',
   flexShrink: 0,
   zIndex: 200,
+  textTransform: 'uppercase',
 }
 
 const galleryLabelStyle: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 6,
   color: 'rgba(255,255,255,0.75)',
   fontSize: 18,
   letterSpacing: '0.03em',
   cursor: 'default',
+}
+
+const galleryArrowStyle: React.CSSProperties = {
+  flexShrink: 0,
+  marginTop: 2,
 }
 
 const dropdownStyle: React.CSSProperties = {
