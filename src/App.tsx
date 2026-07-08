@@ -1,13 +1,21 @@
-import Whiteboard from './Whiteboard'
-
-const BASE = import.meta.env.BASE_URL
-
-const IMAGES = [
-  { id: 'dragons',  src: `${BASE}images/dragons.jpg`,  x: 80,  y: 120 },
-  { id: 'harmonia', src: `${BASE}images/harmonia.png`,  x: 620, y: 80  },
-  { id: 'tswltw',   src: `${BASE}images/tswltw.jpg`,    x: 340, y: 420 },
-]
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import AppLayout from './components/AppLayout'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
+import Digital from './pages/Digital'
+import WhiteboardPage from './pages/WhiteboardPage'
 
 export default function App() {
-  return <Whiteboard images={IMAGES} />
+  return (
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route index element={<Home />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="gallery/digital" element={<Digital />} />
+          <Route path="gallery/whiteboard" element={<WhiteboardPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }

@@ -1,2 +1,2 @@
 # personal-site
-WIP
+Personal site intended to be deployed on Github Pages
